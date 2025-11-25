@@ -1,0 +1,572 @@
+:root {
+  --bg-main: #020617;
+  --bg-soft: rgba(15, 23, 42, 0.92);
+  --primary: #6366f1; /* indigo kekinian */
+  --primary-soft: rgba(99, 102, 241, 0.16);
+  --accent: #f97316; /* orange aksen */
+  --accent-soft: rgba(249, 115, 22, 0.12);
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-soft: rgba(148, 163, 184, 0.4);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 45%),
+    radial-gradient(circle at bottom, rgba(147, 51, 234, 0.18), transparent 55%),
+    #020617;
+  color: var(--text-main);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Navbar – glass effect */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent)
+      border-box,
+    linear-gradient(to right, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.94))
+      padding-box;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: conic-gradient(
+      from 180deg,
+      #6366f1,
+      #22c55e,
+      #f97316,
+      #6366f1
+    );
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-mark::before {
+  content: "RA";
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.logo-text h1 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.logo-text p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-menu-desktop {
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+.nav-link {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: all 0.22s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link svg {
+  width: 13px;
+  height: 13px;
+}
+
+.nav-link:hover {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-main);
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, #6366f1, #22c55e);
+  color: #0b1120;
+}
+
+/* tombol hamburger */
+.nav-toggle {
+  display: none;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 6px 8px;
+  color: var(--text-main);
+}
+
+.nav-menu-mobile {
+  display: none;
+  border-top: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(18px);
+}
+
+.nav-menu-mobile-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 0 10px;
+}
+
+.nav-link-mobile {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .nav-menu-desktop {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-menu-mobile {
+    display: block;
+  }
+}
+
+/* Main layout */
+.main-content {
+  flex: 1;
+  padding: 80px 0 40px;
+  position: relative;
+  z-index: 1; /* supaya di atas icon terbang */
+}
+
+/* Footer – lebih modern */
+.footer {
+  border-top: 1px solid rgba(148, 163, 184, 0.35);
+  background: radial-gradient(circle at top, rgba(99, 102, 241, 0.12), #020617);
+  padding: 16px 0;
+  position: relative;
+  z-index: 1; /* supaya di atas icon terbang */
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.footer-social a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-social a:hover {
+  border-color: rgba(148, 163, 184, 0.5);
+  color: var(--primary);
+}
+
+/* ================== PAGE LAYOUT GENERIC ================== */
+
+.page {
+  padding-top: 16px;
+}
+
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-size: 1.6rem;
+  margin: 0 0 4px;
+}
+
+.page-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 540px;
+}
+
+/* Badge kecil */
+.badge-soft {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+/* Grid 2 kolom */
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+/* List bullet rapi */
+.list-check {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.list-check li {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+/* Label section kecil */
+.section-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+/* Tombol umum */
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #22c55e);
+  color: #020617;
+}
+
+.btn-ghost {
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text-main);
+  border-color: rgba(148, 163, 184, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================== ANIMASI GLOBAL ================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Utility class animasi */
+.fade-in-up {
+  opacity: 0;
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.fade-in-down {
+  opacity: 0;
+  animation: fadeDown 0.6s ease-out forwards;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Delay */
+.anim-delay-1 {
+  animation-delay: 0.1s;
+}
+.anim-delay-2 {
+  animation-delay: 0.2s;
+}
+.anim-delay-3 {
+  animation-delay: 0.3s;
+}
+.anim-delay-4 {
+  animation-delay: 0.4s;
+}
+
+/* Hover animasi untuk card & form */
+.card,
+.service-card,
+.portfolio-card,
+.blog-card,
+.about-card,
+.contact-box,
+.contact-form,
+.certificate-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease, background 0.2s ease;
+}
+
+.card:hover,
+.service-card:hover,
+.portfolio-card:hover,
+.blog-card:hover,
+.about-card:hover,
+.contact-box:hover,
+.contact-form:hover,
+.certificate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+  border-color: rgba(99, 102, 241, 0.6);
+  background: radial-gradient(circle at top, rgba(99, 102, 241, 0.1), #020617);
+}
+
+/* Hover lembut untuk tombol */
+.btn-primary,
+.btn-ghost {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.btn-primary:hover,
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
+}
+
+
+/* ================== ICON TERBANG DI BACKGROUND ================== */
+
+.floating-icons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* tidak mengganggu klik */
+  z-index: 0; /* di bawah main-content & footer */
+  overflow: hidden;
+}
+
+/* Icon dasar */
+.floating-icon {
+  position: absolute;
+  opacity: 0.18;
+  color: var(--primary);
+}
+
+/* Posisi & animasi tiap icon */
+.icon-1 {
+  top: 18%;
+  left: 6%;
+  animation: floatDiagonal1 18s ease-in-out infinite;
+}
+
+.icon-2 {
+  top: 65%;
+  left: 12%;
+  animation: floatUpDown 16s ease-in-out infinite;
+}
+
+.icon-3 {
+  top: 24%;
+  right: 8%;
+  animation: floatDiagonal2 20s ease-in-out infinite;
+}
+
+.icon-4 {
+  bottom: 12%;
+  right: 18%;
+  animation: floatUpDown 22s ease-in-out infinite;
+}
+
+/* Keyframes untuk terbang */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-18px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(18px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatDiagonal1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -18px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0, -8px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-16px, 12px) rotate(-4deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes floatDiagonal2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-18px, 16px) rotate(-6deg);
+  }
+  50% {
+    transform: translate(0, 10px) rotate(0deg);
+  }
+  75% {
+    transform: translate(16px, -12px) rotate(4deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Di HP, icon terbang disembunyikan biar tidak terlalu ramai */
+@media (max-width: 768px) {
+  .floating-icons {
+    display: none;
+  }
+}

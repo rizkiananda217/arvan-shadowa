@@ -1,0 +1,115 @@
+.contact-grid {
+  align-items: flex-start;
+}
+
+.contact-info h2,
+.contact-form-wrapper h2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.contact-info p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* kartu ilustrasi di kiri */
+.contact-illustration-card {
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.contact-illustration {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.contact-box {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border-soft);
+}
+
+.contact-box h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.contact-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.contact-box li {
+  margin-bottom: 4px;
+}
+
+.contact-box a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+.contact-form-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.contact-form {
+  background: var(--bg-soft);
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: #020617;
+  border-radius: 10px;
+  border: 1px solid var(--border-soft);
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
